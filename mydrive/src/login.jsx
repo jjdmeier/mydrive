@@ -45,8 +45,16 @@ const styles = theme => ({
   },
 });
 
+function handleClick(e) {
+    console.log(e);
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+
+
 function SignIn(props) {
   const { classes } = props;
+  console.log(classes);
 
   return (
     <main className={classes.main}>
@@ -60,8 +68,8 @@ function SignIn(props) {
         </Typography>
         <form className={classes.form}>
           <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="email">Email Address</InputLabel>
-            <Input id="email" name="email" autoComplete="email" autoFocus />
+            <InputLabel htmlFor="username">Username</InputLabel>
+            <Input id="username" name="username" autoComplete="username" autoFocus />
           </FormControl>
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="password">Password</InputLabel>
@@ -77,6 +85,12 @@ function SignIn(props) {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={() => { 
+                console.log('onClick'); 
+                console.log(document.getElementById('username').value);
+                console.log(document.getElementById('password').value);
+                handleClick();
+                }}
           >
             Sign in
           </Button>
